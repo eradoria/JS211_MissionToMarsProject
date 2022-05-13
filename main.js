@@ -1,5 +1,6 @@
 'use strict';
 const assert = require('assert');
+const { spec } = require('mocha/lib/reporters');
 
 // This is an object that has types of jobs and the values each provide.
 const jobTypes = {
@@ -11,9 +12,41 @@ const jobTypes = {
 
 // Your code will go here
 
+class CrewMember{
+  constructor(name,job,specialSkill,ship){
+    this.name = name
+    this.job = job
+    this.specialSkill = specialSkill
+    this.ship = ship
+  }
+    enterShip(ship) {
+      this.ship = ship;
+      this.ship.crew.push(this)
+    }
+};
 
 
 
+class Ship{
+  constructor(name,type,ability,crew){
+    this.name = name
+    this.type = type
+    this.ability = ability
+    this.crew = []
+  }
+
+  missionStatement(ship,name){
+  this.ship = ship;
+  this.name = name;
+  this.ship.name.push(this);
+
+  if (this.crew.length === 0) {
+    return this.ability
+  }else{
+    return "Can't perform a mission yet."
+  }
+}
+}
 
 
 
